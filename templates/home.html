@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+<h1 style="margin-top: 60px; margin-bottom: 60px">Posts</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4" style="margin-bottom: 60px">
+
+    {% for obj in posts %}
+    <div class="col">
+    <div class="card">
+      <img src="{{obj.image.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ obj.title}}</h5>
+        <p class="card-text">{{ obj.description }}</p>
+      </div>
+        <div class="card-footer">
+      <small class="text-muted">{{ obj.author}}</small>
+    </div>
+    </div>
+  </div>
+    {% endfor %}
+{% for info in information %}
+    <div style="margin-top: 60px">
+    <h1 style="margin-bottom: 60px">ABOUT</h1>
+    <img src="{{ info.image.url }}" alt="">
+    </div>
+    <div>
+    <h2>Name: {{ info.name }}</h2>
+    <h2>Information: {{ info.description }}</h2>
+    <h2>Profession: {{ info.profession }}</h2>
+    <h2>Projects: {{ info.project_count }}</h2>
+    </div>
+{% endfor %}
+</div>
+<div class="container">
+    {% for info in about %}
+    <div style="margin-top: 60px">
+    <h1 style="margin-bottom: 60px">ABOUT</h1>
+    <img src="{{ info.image.url }}" alt="">
+    </div>
+    <div>
+    <h2>Name: {{ info.name }}</h2>
+    <h2>Information: {{ info.description }}</h2>
+    <h2>Profession: {{ info.profession }}</h2>
+    <h2>Projects: {{ info.project_count }}</h2>
+    </div>
+{% endfor %}
+</div>
+
+</div>
+
+
+{% endblock %}

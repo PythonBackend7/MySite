@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container">
+        {% for info in information %}
+            <div style="margin-top: 60px">
+                <h1 style="margin-bottom: 60px">ABOUT</h1>
+                <div>
+                    <img src="{{ info.image.url }}" alt="">
+                </div>
+                <div>
+                    <h1>Name:</h1>
+                    <h3 style="margin-left: 100px">{{ info.name }}</h3>
+                </div>
+                <div>
+                <h1>Information:</h1><h3 style="margin-left: 100px">{{ info.description }}</h3>
+                </div>
+                    <h2>Profession: {{ info.profession }}</h2>
+                <h2>Projects: {{ info.project_count }}</h2>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

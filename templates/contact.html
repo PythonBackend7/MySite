@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load  static %}
+{% block content %}
+<div class="container">
+<h1>CONTACT</h1>
+    {% for i in contact %}
+        <h2>{{ i.name }}</h2>
+        <h2>{{ i.email }}</h2>
+        <h2>{{ i.phone }}</h2>
+
+    {% endfor %}
+</div>
+{% endblock %}
