@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.http import Http404
+from django.shortcuts import render, get_object_or_404
 from .models import Post, About, Contact
+
 
 # Create your views here.
 
@@ -38,3 +40,11 @@ def contact_page(request):
         'contact': contact
     }
     return render(request, 'contact.html', context)
+
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, id=pk)
+    tags = post.tags.all()
+    context = {'post': post,
+               'tags': tags}
+    return render(request, 'detail.html', context)

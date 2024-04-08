@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container" style="margin-top: 60px">
+    <h1 style="margin-bottom: 60px">Post Detail</h1>
+        <div class="col">
+            <div class="card">
+                <img src="{{ post.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.description }}</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{ post.author }}</small>
+                </div>
+                <div class="card-footer">
+                    {% for tag in tags %}
+                    <small  style="color: green">{{ tag.name }},</small>
+                    {% endfor %}
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{ post.category }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
